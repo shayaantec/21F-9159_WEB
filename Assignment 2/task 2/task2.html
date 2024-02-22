@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            display: flex;
+            background-color: rgb(71, 71, 117);
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            border: solid black;
+        }
+
+        .inputbox {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1 class="text-white">Sign Up</h1>
+        </div>
+    
+        <div class="container p-5">
+            <form id="signupForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username*" id="username" required>
+                    <small id="usernameError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password*" id="password" required>
+                    <small id="passwordError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="birthdate" >
+                    <small id="birthdateError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email*" id="email" >
+                    <small id="emailError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="gender" >
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <small id="genderError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Phone Number*" id="phoneNumber" >
+                    <small id="phoneNumberError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Zip Code*" id="zipCode" >
+                    <small id="zipCodeError" class="text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Country*" id="country">
+                    <small id="countryError" class="text-danger"></small>
+                </div>
+                <button type="submit"   class="btn btn-primary btn-block  " onclick="showmsg()">Register </button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        function showmsg(){
+            alert("Registered Successfully");
+        }
+        function validateForm() {
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var birthdate = document.getElementById('birthdate').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var gender = document.getElementById('gender').value;
+            var phoneNumber = document.getElementById('phoneNumber').value.trim();
+            var zipCode = document.getElementById('zipCode').value.trim();
+            var country = document.getElementById('country').value.trim();
+            var isValid = true;
+            
+            
+            if (username === "") {
+                document.getElementById('usernameError').innerText = "Username is required.";
+                isValid = false;
+            } else if (username.length < 6 || username.length > 20) {
+                document.getElementById('usernameError').innerText = "Username must be between 6 and 20 characters.";
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').innerText = "";
+            }
+
+           
+            if (password === "") {
+                document.getElementById('passwordError').innerText = "Password is required.";
+                isValid = false;
+            } else if (password.length < 8 || password.length > 20) {
+                document.getElementById('passwordError').innerText = "Password must be between 8 and 20 characters.";
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').innerText = "";
+            }
+
+            
+            if (birthdate === "") {
+                document.getElementById('birthdateError').innerText = "Birthdate is required.";
+                isValid = false;
+            } else {
+                document.getElementById('birthdateError').innerText = "";
+            }
+
+          
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerText = "Invalid email format.";
+                isValid = false;
+            } else {
+                document.getElementById('emailError').innerText = "";
+            }
+
+           
+            if (gender === "") {
+                document.getElementById('genderError').innerText = "Gender is required.";
+                isValid = false;
+            } else {
+                document.getElementById('genderError').innerText = "";
+            }
+
+            if (isNaN(phoneNumber)) {
+                document.getElementById('phoneNumberError').innerText = "Phone number should be numeric.";
+                isValid = false;
+            } else if (phoneNumber.length !== 10) {
+                document.getElementById('phoneNumberError').innerText = "Phone number should be 10 digits.";
+                isValid = false;
+            } else {
+                document.getElementById('phoneNumberError').innerText = "";
+            }
+
+          
+            if (isNaN(zipCode)) {
+                document.getElementById('zipCodeError').innerText = "Zip code should be numeric.";
+                isValid = false;
+            } else if (zipCode.length !== 6) {
+                document.getElementById('zipCodeError').innerText = "Zip code should be 6 digits.";
+                isValid = false;
+            } else {
+                document.getElementById('zipCodeError').innerText = "";
+            }
+
+            
+            if (country === "") {
+                document.getElementById('countryError').innerText = "Country is required.";
+                isValid = false;
+            } else {
+                document.getElementById('countryError').innerText = "";
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
