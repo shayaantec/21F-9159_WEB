@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.card-body {
+    position: relative;
+    max-width: 40%;
+    height: 500px;
+    background-color: rgba(91, 48, 161, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 20px;
+    color: white;
+}
+
+.search-box {
+   position: relative;
+    align-items: center;
+    background:transparent;
+    height: 55px;
+    display: flex;
+    width: 100%;
+    
+}
+
+.search-box i {
+    font-size: 34px;
+    margin-right: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 22px;
+    outline: none;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+
+.search-box input::placeholder {
+    color: rgba(247, 243, 243, 0.986);
+    text-transform: uppercase;
+}
+
+.search-box button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: white;
+    padding: 0 10px;
+}
+
+.weatherbox {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.weatherbox img {
+    width: 30%;
+    margin: 20px 0;
+}
+
+.weatherbox .temperature {
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.weatherbox .temperature span {
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.humidity,
+.wind {
+    display: flex;
+    align-items: center;
+}
+
+.weather-details i {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.weather-details span {
+    font-size: 20px;
+    font-weight: 500;
+}
